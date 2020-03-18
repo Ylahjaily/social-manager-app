@@ -9,7 +9,7 @@ export const setAllUsers = (users) => {
     }
 }
 
-export function fetchAllUsers(){
+export const fetchAllUsers=()=>{
     return dispatch => {
         fetch(`${baseUrl}` + '/api/users',
         {
@@ -25,4 +25,42 @@ export function fetchAllUsers(){
     }
 }
 
-export default(fetchAllUsers);
+export const register=(data)=>{
+    return dispatch => {
+        return fetch(`${baseUrl}`+'/auth/register',{
+            method : 'POST',
+            body : JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept':'application/json',
+                'Access-Control-Allow-Origin' : '*'
+            },
+        })
+    }
+}
+
+export const login= (data) =>{
+    return dispatch => {
+        return fetch(`${baseUrl}`+'/api/auth/login',{
+            method : 'POST',
+            body : JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept':'application/json',
+                'Access-Control-Allow-Origin' : '*'
+            },
+        })
+        .then((response => {
+            response.json()
+            .then(result => {
+                console.log(result)
+                localStorage.setItem('login',JSON.stringify({
+                    login: true,
+                    token: result.token
+                }))
+            })
+        }))
+    }
+}
+
+export default(fetchAllUsers,register,login);

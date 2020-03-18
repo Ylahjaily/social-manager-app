@@ -1,22 +1,22 @@
 import React ,{useEffect} from 'react';
 import {connect} from "react-redux";
+import {Switch, Route,NavLink} from 'react-router-dom';
 import fetchAllUsers from './Actions/usersActions';
+import SignInForm from './Components/Form/SignInForm';
+import LoginForm from './Components/Form/LoginForm';
 
 export const App = () =>
 {
-    const handleUsers = ()=>{
-        console.log("i will fetch ok");
-        fetchAllUsers();
-    }
+    
 
     return (
         <div>
             <h1>Social Manager</h1>
-            <button
-                onClick={()=> handleUsers()}
-            >
-                click
-            </button>
+            <NavLink to={"/signin"}>Sign In</NavLink>
+            <NavLink to={"/login"}>Login</NavLink>
+            <Route path ="/signin" exact component={SignInForm}/>
+            <Route path="/login" exact component={LoginForm}/>
+            
         </div>
     )
 }
