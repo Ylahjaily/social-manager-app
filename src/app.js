@@ -1,11 +1,12 @@
 import React ,{useEffect} from 'react';
 import {connect} from "react-redux";
 import fetchAllUsers from './Actions/usersActions';
+import SignInForm from './Components/Form/SignInForm';
+import LoginForm from './Components/Form/LoginForm';
 
 export const App = () =>
 {
     const handleUsers = ()=>{
-        console.log("i will fetch ok");
         fetchAllUsers();
     }
 
@@ -13,10 +14,12 @@ export const App = () =>
         <div>
             <h1>Social Manager</h1>
             <button
-                onClick={()=> handleUsers()}
+                onClick={handleUsers()}
             >
                 click
             </button>
+            <SignInForm/>
+            <LoginForm/>
         </div>
     )
 }
