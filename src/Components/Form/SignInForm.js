@@ -1,6 +1,6 @@
 import React,{Component}  from 'react';
 import {connect} from "react-redux";
-import addUser from "../../Actions/usersActions";
+import {register} from "../../Actions/usersActions";
 
 class SignInForm extends Component {
     constructor(props){
@@ -11,7 +11,6 @@ class SignInForm extends Component {
             email : '',
             apiKey : '',
             password : '',
-            roles : ['ROLE_USER'],
             errors : {},
             loading : false,
             done : false
@@ -51,7 +50,9 @@ class SignInForm extends Component {
         {
             const {firstName,lastName,apiKey,email,password,roles} = this.state
             this.setState({loading : true})
-            this.props.addUser({firstName,lastName,apiKey,email,password},roles)
+
+            this.props.register({firstName,lastName,apiKey,email,password},roles)
+
                 .then(
                     () => {this.setState({done : true})},
                     (err) => err.response.json().then(({errors}) => this.setState({errors, loading : false}))
@@ -62,7 +63,6 @@ class SignInForm extends Component {
     render()
     {
         const form = (
-        
 
             <form onSubmit={this.handleSubmit}>
                 <h1> Sig in!</h1>
@@ -80,7 +80,8 @@ class SignInForm extends Component {
                 <input type='text' id ='apiKey' name='apiKey' onChange={this.handleChange}/>
 
                 <label htmlFor='password'>password</label>
-                <input type='text'  id ='password' name='password' onChange={this.handleChange}/>
+                <input type='password'  id ='password' name='password' onChange={this.handleChange}/>
+
 
                 <input type='submit' value='submit'/>
             </form>
@@ -97,4 +98,4 @@ class SignInForm extends Component {
     }
 }
 
-export default connect(null, {addUser})(SignInForm);
+export default connect(null, {register})(SignInForm);
