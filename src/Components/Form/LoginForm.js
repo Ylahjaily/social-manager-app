@@ -1,6 +1,6 @@
 import React,{Component}  from 'react';
 import {connect} from "react-redux";
-import {login} from "../../Actions/usersActions";
+import {userLoginFetch} from "../../Actions/usersActions";
 
 
 
@@ -46,7 +46,7 @@ class LoginForm extends Component {
         {
             const {username,password} = this.state
             this.setState({loading : true})
-            this.props.login({username,password})
+            this.props.userLoginFetch({username,password})
                 .then(
                     () => {this.setState({done : true})},
                     (err) => err.response.json().then(({errors}) => this.setState({errors, loading : false}))
@@ -84,4 +84,8 @@ class LoginForm extends Component {
 
 }
 
-export default connect(null, {login})(LoginForm);
+const mapDispatchToProps = dispatch => ({
+    userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo))
+  })
+
+export default connect(null, mapDispatchToProps)(LoginForm);

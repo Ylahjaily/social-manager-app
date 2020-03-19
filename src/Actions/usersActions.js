@@ -39,8 +39,9 @@ export const register=(data)=>{
     }
 }
 
-export const login= (data) =>{
+export const userLoginFetch= (data) =>{
     return dispatch => {
+
         return fetch(`${baseUrl}`+'/api/auth/login',{
             method : 'POST',
             body : JSON.stringify(data),
@@ -63,5 +64,5 @@ export const login= (data) =>{
     }
 }
 
-export default(fetchAllUsers,register,login);
+export default(fetchAllUsers,register,userLoginFetch);
 
