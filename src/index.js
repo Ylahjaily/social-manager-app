@@ -4,6 +4,7 @@ import App from "./app";
 import {Provider} from "react-redux";
 import {BrowserRouter} from "react-router-dom";
 import store from "./store";
+import "./app.css";
 
 
 ReactDOM.render(
