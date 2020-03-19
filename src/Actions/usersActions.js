@@ -9,7 +9,7 @@ export const setAllUsers = (users) => {
     }
 }
 
-export function fetchAllUsers(){
+export const fetchAllUsers=()=>{
     return dispatch => {
         fetch(`${baseUrl}` + '/api/users',
         {
@@ -25,7 +25,7 @@ export function fetchAllUsers(){
     }
 }
 
-export function addUser(data){
+export const register=(data)=>{
     return dispatch => {
         return fetch(`${baseUrl}`+'/auth/register',{
             method : 'POST',
@@ -39,7 +39,7 @@ export function addUser(data){
     }
 }
 
-export function login(data){
+export const login= (data) =>{
     return dispatch => {
         return fetch(`${baseUrl}`+'/api/auth/login',{
             method : 'POST',
@@ -63,4 +63,5 @@ export function login(data){
     }
 }
 
-export default(fetchAllUsers,addUser,login);
+export default(fetchAllUsers,register,login);
+

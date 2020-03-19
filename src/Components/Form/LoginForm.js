@@ -1,17 +1,15 @@
 import React,{Component}  from 'react';
 import {connect} from "react-redux";
-import login from "../../Actions/usersActions";
+import {login} from "../../Actions/usersActions";
+
+
 
 class LoginForm extends Component {
     constructor(props){
         super(props)
         this.state = {
-            firstName : '',
-            lastName : '',
             username : '',
-            apiKey : '',
             password : '',
-            roles : ['ROLE_USER'],
             errors : {},
             loading : false,
             done : false
@@ -60,7 +58,6 @@ class LoginForm extends Component {
     {
         const form = (
         
-
             <form onSubmit={this.handleSubmit}>
                 <h1> Login!</h1>
 
@@ -68,7 +65,8 @@ class LoginForm extends Component {
                 <input type='email' id ='username' name='username' onChange={this.handleChange}/>
 
                 <label htmlFor='password'>password</label>
-                <input type='text'  id ='password' name='password' onChange={this.handleChange}/>
+
+                <input type='password'  id ='password' name='password' onChange={this.handleChange}/>
 
                 <input type='submit' value='submit'/>
             </form>
