@@ -2,6 +2,8 @@ import React,{Component}  from 'react';
 import {connect} from "react-redux";
 import {login} from "../../Actions/usersActions";
 
+
+
 class LoginForm extends Component {
     constructor(props){
         super(props)
@@ -63,6 +65,7 @@ class LoginForm extends Component {
                 <input type='email' id ='username' name='username' onChange={this.handleChange}/>
 
                 <label htmlFor='password'>password</label>
+
                 <input type='password'  id ='password' name='password' onChange={this.handleChange}/>
 
                 <input type='submit' value='submit'/>

@@ -7,7 +7,6 @@ import LoginForm from './Components/Form/LoginForm';
 
 export const App = () =>
 {
-    
 
     return (
         <div>
@@ -16,7 +15,7 @@ export const App = () =>
             <NavLink to={"/login"}>Login</NavLink>
             <Route path ="/signin" exact component={SignInForm}/>
             <Route path="/login" exact component={LoginForm}/>
-            
+
         </div>
     )
 }

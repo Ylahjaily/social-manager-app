@@ -64,3 +64,4 @@ export const login= (data) =>{
 }
 
 export default(fetchAllUsers,register,login);
+

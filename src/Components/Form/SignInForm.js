@@ -50,7 +50,9 @@ class SignInForm extends Component {
         {
             const {firstName,lastName,apiKey,email,password,roles} = this.state
             this.setState({loading : true})
+
             this.props.register({firstName,lastName,apiKey,email,password},roles)
+
                 .then(
                     () => {this.setState({done : true})},
                     (err) => err.response.json().then(({errors}) => this.setState({errors, loading : false}))
@@ -61,7 +63,7 @@ class SignInForm extends Component {
     render()
     {
         const form = (
-        
+
             <form onSubmit={this.handleSubmit}>
                 <h1> Sig in!</h1>
 
@@ -79,6 +81,7 @@ class SignInForm extends Component {
 
                 <label htmlFor='password'>password</label>
                 <input type='password'  id ='password' name='password' onChange={this.handleChange}/>
+
 
                 <input type='submit' value='submit'/>
             </form>
