@@ -7,3 +7,4 @@ export default function proposals(state = [], action = []){
     }
     return state;
 }
+
