@@ -1,6 +1,6 @@
 export const FETCH_PROPOSALS_APPROVED = "FETCH_PROPOSALS_APPROVED";
 
-const baseUrl = "http://localhost:80";
+const baseUrl = "http://145.239.91.81"
 
 const setApprovedProposals = (approvedProposals) => {
     return {
@@ -17,7 +17,7 @@ export const fetchApprovedProposals=()=>{
             let tokenAcces = token.token;
 
             if(tokenAcces){
-                return fetch(`${baseUrl}` + '/api/communicant/proposals/approved',
+                return fetch(`${baseUrl}` + '/api/profile/proposals/approved',
                 {
                     method : 'GET',
                     headers : {

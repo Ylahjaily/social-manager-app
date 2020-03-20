@@ -13,7 +13,7 @@ const ProposalsApprovedList = (props) =>
 
     const proposalsApprovedList = (
         <div>
-          <h1>proposals Approved List</h1>
+          
           {
               approvedProposals.map((approvedProposal)=> <ProposalApprovedCard approvedProposal={approvedProposal} key ={approvedProposal.id}/>)}/>)
           }

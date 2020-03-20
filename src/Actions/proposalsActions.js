@@ -1,6 +1,6 @@
 export const FETCH_PROPOSALS = "FETCH_PROPOSALS";
 
-const baseUrl = "http://localhost:80";
+const baseUrl = "http://145.239.91.81";
 
 export const setAllProposals = (proposals) => {
     return {
@@ -17,7 +17,7 @@ export const fetchAllProposals=(token)=>{
             let tokenAcces = token.token;
 
             if(tokenAcces){
-                return fetch(`${baseUrl}` + '/api/proposals',
+                return fetch(`${baseUrl}` + '/api/admin/proposals',
                 {
                     method : 'GET',
                     headers : {

@@ -12,7 +12,6 @@ const ProposalsList = (props) =>
 
     const proposalsList = (
         <div>
-          <h1>proposals</h1>
           {
               proposals.map(proposal=> <ProposalsCard proposal={proposal} key ={proposal.id}/>)
           }

@@ -11,14 +11,9 @@ const ProposalsPage = (props) =>
         props.fetchAllProposals()
       }, []);
 
-    const handleClick =() =>{
-        props.fetchAllProposals();
-    }
-
     return (
         <div>
-            <h1>proposals page</h1>
-            <button onClick={()=>handleClick()}></button>
+            <h1>Proposals</h1>
             <ProposalsList/>
         </div>
     )

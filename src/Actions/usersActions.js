@@ -1,6 +1,6 @@
 export const FETCH_USERS = "FETCH_USERS";
 
-const baseUrl = "http://localhost:80"
+const baseUrl = "http://145.239.91.81"
 
 export const setAllUsers = (users) => {
     return {
