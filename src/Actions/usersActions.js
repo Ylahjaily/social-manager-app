@@ -1,4 +1,7 @@
+const jwtDecode = require('jwt-decode');
+
 export const FETCH_USERS = "FETCH_USERS";
+export const FETCH_LOGIN = "FETCH_LOGIN";
 
 const baseUrl = "http://145.239.91.81"
 
@@ -8,6 +11,14 @@ export const setAllUsers = (users) => {
         users
     }
 }
+
+export const setCurrentUser = (currentUser) => {
+    return {
+        type : FETCH_LOGIN,
+        currentUser
+    }
+}
+
 
 export const fetchAllUsers=()=>{
     return dispatch => {
@@ -54,13 +65,14 @@ export const userLoginFetch= (data) =>{
         .then((response => {
             response.json()
             .then(result => {
-                console.log(result)
+                dispatch(setCurrentUser(jwtDecode(result.token)))
                 localStorage.setItem('login',JSON.stringify({
                     login: true,
                     token: result.token
                 }))
+
             })
-        }))
+        })).catch(errors => console.log(errors))
     }
 }
 
